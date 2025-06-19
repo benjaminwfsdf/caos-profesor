@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reparto de Cartas - Panel Profesor</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background-color: #fff;
+    }
+    h1, h2 {
+      text-decoration: underline;
+    }
+    select, button {
+      margin: 10px 0;
+      padding: 5px;
+    }
+    .log {
+      border-top: 1px dashed #000;
+      margin-top: 20px;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎴 Reparto de Cartas</h1>
+
+  <h2>📋 Estudiantes</h2>
+  <select id="estudianteSelect">
+    <option value="Benjamin Gonzalez|3ro Medio">Benjamin Gonzalez (3ro Medio)</option>
+    <!-- Agregar más desde lista si se desea -->
+  </select>
+
+  <h2>🃏 Reparto</h2>
+  <button onclick="repartirAleatoria()">Repartir Carta Aleatoria</button>
+  <select id="cartaEspecifica">
+    <option value="Perro Bomba">Perro Bomba</option>
+    <option value="Pinta Mono">Pinta Mono</option>
+    <option value="Kodama">Kodama</option>
+    <option value="Niño Chocolate">Niño Chocolate</option>
+    <option value="1UP">1UP</option>
+    <option value="Violeta Parra">Violeta Parra</option>
+    <option value="El Reto">El Reto</option>
+    <option value="BME">BME</option>
+    <option value="GAMER">GAMER</option>
+    <option value="Iluminati">Iluminati</option>
+    <option value="Leftraru">Leftraru</option>
+  </select>
+  <button onclick="repartirEspecifica()">Repartir Carta Específica</button>
+
+  <div class="log" id="logReparto"></div>
+
+  <script>
+    const probabilidad = {
+      comun: 0.6,
+      epica: 0.3,
+      legendaria: 0.1
+    };
+
+    const cartas = {
+      comun: ["Perro Bomba", "Pinta Mono", "Kodama", "Niño Chocolate"],
+      epica: ["1UP", "Violeta Parra", "El Reto", "BME", "GAMER"],
+      legendaria: ["Iluminati", "Leftraru"]
+    };
+
+    function getRandomCarta() {
+      const r = Math.random();
+      if (r < probabilidad.comun) {
+        return cartas.comun[Math.floor(Math.random() * cartas.comun.length)];
+      } else if (r < probabilidad.comun + probabilidad.epica) {
+        return cartas.epica[Math.floor(Math.random() * cartas.epica.length)];
+      } else {
+        return cartas.legendaria[Math.floor(Math.random() * cartas.legendaria.length)];
+      }
+    }
+
+    function repartirAleatoria() {
+      const estudiante = document.getElementById("estudianteSelect").value;
+      const carta = getRandomCarta();
+      document.getElementById("logReparto").innerHTML += `<p>🎲 ${estudiante} recibe: <b>${carta}</b></p>`;
+    }
+
+    function repartirEspecifica() {
+      const estudiante = document.getElementById("estudianteSelect").value;
+      const carta = document.getElementById("cartaEspecifica").value;
+      document.getElementById("logReparto").innerHTML += `<p>🎯 ${estudiante} recibe: <b>${carta}</b></p>`;
+    }
+  </script>
+</body>
+</html>

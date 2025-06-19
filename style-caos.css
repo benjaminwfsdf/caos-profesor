@@ -1,0 +1,69 @@
+
+/* Estilo visual CAOS - blanco y negro tipo achurado */
+
+body {
+    background-color: white;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    text-decoration: underline;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+button, select, input[type="file"], input[type="text"], input[type="number"] {
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid black;
+    background-color: white;
+    padding: 6px 12px;
+    margin: 5px 0;
+    box-shadow: 4px 4px 0 black;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+.container-box {
+    border: 2px dashed black;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 6px 6px 0 black;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #000 0px,
+        #000 1px,
+        #fff 1px,
+        #fff 6px
+    );
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.qr-box {
+    border: 2px solid black;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 4px 4px 0 black;
+    text-align: center;
+}

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Canje de Carta - Panel Profesor</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        button {
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .aprobado {
+            background-color: lightgreen;
+        }
+        .rechazado {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+<h1>✅ Validar Canje de Carta</h1>
+
+<p>Aquí se muestran las solicitudes enviadas por estudiantes para usar una carta. El profesor debe aprobar o rechazar.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Estudiante</th>
+            <th>Curso</th>
+            <th>Carta</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody id="tablaSolicitudes">
+        <tr>
+            <td>Benjamin Gonzalez</td>
+            <td>3ro Medio</td>
+            <td>1UP - 5 décimas para una nota</td>
+            <td>
+                <button onclick="aprobar(this)">✅ Aprobar</button>
+                <button onclick="rechazar(this)">❌ Rechazar</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Camila Soto</td>
+            <td>2do Medio</td>
+            <td>Niño Chocolate - Comer en la sala</td>
+            <td>
+                <button onclick="aprobar(this)">✅ Aprobar</button>
+                <button onclick="rechazar(this)">❌ Rechazar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function aprobar(btn) {
+    const row = btn.closest("tr");
+    row.className = "aprobado";
+    row.cells[3].innerHTML = "✅ Canje aprobado";
+}
+
+function rechazar(btn) {
+    const row = btn.closest("tr");
+    row.className = "rechazado";
+    row.cells[3].innerHTML = "❌ Canje rechazado";
+}
+</script>
+
+</body>
+</html>
